@@ -1,3 +1,50 @@
+// Cube
+let x = 0;
+let y = 20;
+let z = 0;
+let bool = true;
+let interval;
+
+const cube = document.querySelector('.cube');
+
+function setCubeControls(controlElement, xIncrement = 0, yIncrement = 0, zIncrement = 0) {
+    document.querySelector(controlElement).addEventListener('click', () => {
+        cube.style.transform = `rotateX(${x += xIncrement}deg)
+                                rotateY(${y += yIncrement}deg)
+                                rotateZ(${z += zIncrement}deg)`;
+    });
+}
+
+setCubeControls('.top-x-control', 20, 0, 0);
+setCubeControls('.bottom-x-control', -20, 0, 0);
+setCubeControls('.left-y-control', 0, -20, 0);
+setCubeControls('.right-y-control', 0, 20, 0);
+setCubeControls('.top-z-control', 0, 0, -20);
+setCubeControls('.bottom-z-control', 0, 0, 20);
+
+const playPause = () => {
+    if(bool) {
+        interval = setInterval(() => {
+            cube.style.transform = `rotateY(${y++}deg) rotateX(${x}deg) rotateZ(${z}deg`;
+        }, 100);
+    } else {
+        clearInterval(interval);
+    }
+}
+
+playPause();
+
+document.querySelector('.controls').addEventListener('mouseover', () => {
+    bool = false;
+    playPause();
+});
+
+document.querySelector('.controls').addEventListener('mouseout', () => {
+    bool = true;
+    playPause();
+});
+// End of Cube
+
 // Slideshow
 const slideshowDivs = () => {
     for(let i = 1; i <= 5; i++) {
