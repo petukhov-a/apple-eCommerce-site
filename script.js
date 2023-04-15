@@ -25,7 +25,7 @@ setCubeControls('.bottom-z-control', 0, 0, 20);
 const playPause = () => {
     if(bool) {
         interval = setInterval(() => {
-            cube.style.transform = `rotateY(${y++}deg) rotateX(${x}deg) rotateZ(${z}deg`;
+            cube.style.transform = `rotateX(${x}deg) rotateY(${y++}deg) rotateZ(${z}deg`;
         }, 100);
     } else {
         clearInterval(interval);
