@@ -15,7 +15,7 @@ let interval;
 
 const cube = document.querySelector('.cube');
 
-function setCubeControls(controlElement, xIncrement = 0, yIncrement = 0, zIncrement = 0) {
+function setCubeControl(controlElement, xIncrement = 0, yIncrement = 0, zIncrement = 0) {
     document.querySelector(controlElement).addEventListener('click', () => {
         cube.style.transform = `rotateX(${x += xIncrement}deg)
                                 rotateY(${y += yIncrement}deg)
@@ -23,12 +23,12 @@ function setCubeControls(controlElement, xIncrement = 0, yIncrement = 0, zIncrem
     });
 }
 
-setCubeControls('.top-x-control', 20, 0, 0);
-setCubeControls('.bottom-x-control', -20, 0, 0);
-setCubeControls('.left-y-control', 0, -20, 0);
-setCubeControls('.right-y-control', 0, 20, 0);
-setCubeControls('.top-z-control', 0, 0, -20);
-setCubeControls('.bottom-z-control', 0, 0, 20);
+setCubeControl('.top-x-control', 20, 0, 0);
+setCubeControl('.bottom-x-control', -20, 0, 0);
+setCubeControl('.left-y-control', 0, -20, 0);
+setCubeControl('.right-y-control', 0, 20, 0);
+setCubeControl('.top-z-control', 0, 0, -20);
+setCubeControl('.bottom-z-control', 0, 0, 20);
 
 const playPause = () => {
     if(bool) {
